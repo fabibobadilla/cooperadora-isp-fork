@@ -1,0 +1,142 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --eerie-black: #1C2321;
+  --jungle-green: #49A078;
+  --anti-flash-white: #EEEEEE;
+  --tropical-indigo: #8B85C1;
+  --periwinkle: #D4CDF4;
+  --vista-blue: #72A1E5;
+  --poppy-red: #DF2935;
+  --safety-orange: #EC7505;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-size: 100%;
+  box-sizing: border-box;
+  font-family: 'Montserrat', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+}
+
+.layout-menu {
+  height: 100vh;
+  width: 350px;
+  padding-top: 50px;
+  padding-left: 20px;
+  background-color: var(--tropical-indigo);
+}
+
+.layout-wrapper {
+  width: 100%;
+  padding: 50px;
+  background-color: var(--periwinkle);
+  overflow-y: auto;
+}
+
+.menu-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--anti-flash-white);
+}
+
+.layout-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--eerie-black);
+  border-bottom: 1px solid var(--eerie-black);
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+.page-wrapper {
+  background-color: var(--anti-flash-white);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+.data-table {
+  table {
+    width: 100%;
+
+    thead {
+      background-color: var(--eerie-black);
+
+      tr th {
+        padding: 10px;
+        color: var(--anti-flash-white);
+        font-weight: 600;
+        text-align: left;
+      }
+    }
+
+    tbody {
+      tr {
+        cursor: pointer;
+
+        td {
+          padding: 10px;
+          text-align: left;
+          color: var(--eerie-black);
+          font-weight: 600;
+
+          &.center {
+            text-align: center;
+          }
+        }
+
+        &:hover {
+          background-color: var(--periwinkle);
+        }
+      }
+    }
+  }
+}
+
+.button {
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  background-color: var(--vista-blue);
+  color: var(--anti-flash-white);
+  cursor: pointer;
+
+  &.success {
+    background-color: var(--jungle-green);
+  }
+
+  &.warning {
+    background-color: var(--safety-orange);
+  }
+
+  &.error {
+    background-color: var(--poppy-red);
+  }
+
+}
+
+.data-controls {
+  background-color: var(--periwinkle);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+input {
+  padding: 10px;
+  outline: none;
+  border-radius: 5px;
+  border: 1px solid var(--tropical-indigo);
+  min-width: 350px;
+}
