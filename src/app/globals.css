@@ -140,3 +140,35 @@ input {
   border: 1px solid var(--tropical-indigo);
   min-width: 350px;
 }
+
+.subpage-back-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+.students-form {
+  display: flex;
+  width: 100%;
+  flex-flow: column;
+
+  label {
+    font-weight: 600;
+    display: flex;
+    flex-flow: column;
+    gap: 5px;
+    margin-bottom: 15px;
+  }
+
+  .form-footer {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+  }
+}
