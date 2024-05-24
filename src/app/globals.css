@@ -33,6 +33,31 @@ body {
   padding-top: 50px;
   padding-left: 20px;
   background-color: var(--tropical-indigo);
+
+  ul {
+    list-style: none;
+
+    a {
+      transition: .2s linear;
+      text-decoration: none;
+      color: var(--anti-flash-white);
+    }
+
+    li {
+      color: var(--anti-flash-white);
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 6px 0px 0px 6px;
+      transition: .2s linear;
+
+      &:hover {
+        background-color: var(--periwinkle);
+        color: var(--eerie-black);
+        transition: .2s linear;
+      }
+    }
+  }
+
 }
 
 .layout-wrapper {
@@ -46,6 +71,7 @@ body {
   font-size: 24px;
   font-weight: bold;
   color: var(--anti-flash-white);
+  margin-bottom: 10px;
 }
 
 .layout-title {

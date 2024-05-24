@@ -1,5 +1,7 @@
 "use client";
 
+import Link from 'next/link';
+
 export default function AlumnosFormComponent({handler}) {
 
   const formAction = async (formData) => {
@@ -40,7 +42,7 @@ export default function AlumnosFormComponent({handler}) {
 
         <div className='form-footer'>
           <button type='submit' className='button success'>Crear</button>
-          <button type='button' className='button error'>Cancelar</button>
+          <Link href={'/alumnos'}><button type='button' className='button error'>Cancelar</button></Link>
         </div>
     </form>
   )
