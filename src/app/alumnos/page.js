@@ -7,9 +7,10 @@ export default function AlumnosPage(){
   const [usersInit, setUsersInit] = useState([]);
 
   useEffect( () => {
-    fetch('https://dummyjson.com/users')      // Ejecutamos FETCH
+    fetch('/api/alumnos')      // Ejecutamos FETCH
       .then((respuesta) => respuesta.json())  // Devuelve promesa, y retornamos .json()
-      .then(({users}) => {                    // Devuelve promesa y actualizamos users
+      .then((users) => {
+        console.log('users',users);                  // Devuelve promesa y actualizamos users
         setUsers(users);
         setUsersInit(users);
       })
@@ -18,7 +19,7 @@ export default function AlumnosPage(){
 
   const searchStudents = (event) => {
     const filtro = event.target.value;
-    const usuariosFiltrados = usersInit.filter( (user) => user.firstName.toLowerCase().includes(filtro.toLowerCase()) || user.lastName.toLowerCase().includes(filtro.toLowerCase()) )
+    const usuariosFiltrados = usersInit.filter( (user) => user.nombre.toLowerCase().includes(filtro.toLowerCase()) || user.apellido.toLowerCase().includes(filtro.toLowerCase()) )
     setUsers(usuariosFiltrados);
   }
 
@@ -43,10 +44,10 @@ export default function AlumnosPage(){
               <tbody>
                 {
                   users.map(user => (
-                    <tr key={user.id}>
-                      <td>{user.id}</td>
-                      <td>{`${user.firstName} ${user.lastName}`}</td>
-                      <td>{user.age}</td>
+                    <tr key={user._id}>
+                      <td>{user._id}</td>
+                      <td>{`${user.nombre} ${user.apellido}`}</td>
+                      <td>{user.fecha_nacimiento}</td>
                       <td>{user.email}</td>
                       <td className='center'><button className='button'>Editar</button></td>
                       <td className='center'><button className='button success'>Cargar Cobro</button></td>
