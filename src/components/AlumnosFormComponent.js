@@ -6,7 +6,6 @@ export default function AlumnosFormComponent({handler}) {
 
   const formAction = async (formData) => {
     const response = await handler(formData);
-    console.log("RESPUESTA CLIENTE", response);
   }
 
   return (

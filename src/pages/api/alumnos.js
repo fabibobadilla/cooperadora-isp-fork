@@ -30,4 +30,17 @@ export default async function handler(req, res) {
 
   }
 
+  if(method === 'DELETE'){
+    const id = req.body;
+    try {
+      const response = await fetch(`http://localhost:1973/alumnos/${id}`, {
+        method: 'DELETE'
+      });
+      const responseData = await response.json();
+      res.send(responseData);
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  }
+
 }
