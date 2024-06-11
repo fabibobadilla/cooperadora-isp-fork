@@ -6,7 +6,7 @@ export default function RootMenu(){
           <ul>
             <Link href="/"><li>Inicio</li></Link>
             <Link href="/alumnos"><li>Alumnos</li></Link>
-            <li>Cobros</li>
+            <Link href="/cobros"><li>Cobros</li></Link>
             <li>Reportes</li>
           </ul>
         </div>

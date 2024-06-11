@@ -1,11 +1,25 @@
 "use client";
-
 import Link from 'next/link';
+import Swal from 'sweetalert2';
 
 export default function AlumnosFormComponent({handler}) {
 
   const formAction = async (formData) => {
-    const response = await handler(formData);
+    try {
+      const response = await handler(formData);
+      if(response && response._id){
+        Swal.fire({
+          title: 'Alumno creado',
+          text: `El/la alumno/a ${response.nombre} ${response.apellido} fue creado con éxito.`,
+          confirmButtonText: 'Volver',
+          icon: 'success'
+        }).then(() => {
+          window.location.href = '/alumnos';
+        })
+      }
+    } catch (error) {
+      alert('Hubo un error. Intente nuevamente');
+    }
   }
 
   return (
