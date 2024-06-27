@@ -94,7 +94,7 @@ export default function AlumnosPage(){
                     <tr key={user._id}>
                       <td>{idx + 1}</td>
                       <td>{`${user.nombre} ${user.apellido}`}</td>
-                      <td>{user.fecha_nacimiento}</td>
+                      <td>{user.edad}</td>
                       <td>{user.email}</td>
                       <td className='center'>
                         <button

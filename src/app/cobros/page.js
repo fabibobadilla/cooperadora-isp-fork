@@ -1,6 +1,7 @@
 "use client";
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
+import Swal from 'sweetalert2';
 
 export default function CobrosPage() {
   const [cobros, setCobros] = useState([]);
@@ -27,6 +28,33 @@ export default function CobrosPage() {
       cobro.descripcion.toLowerCase().includes(value.toLowerCase())
     )
     setCobros(cobrosFiltrados);
+  }
+
+  const eliminarCobro = ({titulo, _id}) => {
+    Swal.fire({
+      title: 'Eliminar cobro',
+      text: `¿Estás seguro/a que deseas eliminar el cobro ${titulo}?`,
+      showCancelButton: true,
+      showConfirmButton: true,
+      icon: 'warning',
+      confirmButtonText: "Eliminar cobro",
+      cancelButtonText: 'Cancelar'
+    }).then(({isConfirmed}) => {
+      if(!isConfirmed) return;
+
+      fetch('/api/cobros', {
+        method: 'DELETE',
+        body: _id
+      })
+        .then(response => response.json())
+        .then(({_id}) => {
+          const cobrosFiltrados = cobros.filter(c => c._id !== _id);
+          const cobrosFiltradosInit = cobrosInit.filter(c => c._id !== _id);
+
+          setCobros(cobrosFiltrados);
+          setCobrosInit(cobrosFiltradosInit);
+        })
+    })
   }
 
   return(
@@ -58,7 +86,7 @@ export default function CobrosPage() {
                 <td>{cobro.descripcion}</td>
                 <td>{cobro.monto}</td>
                 <td className='center'>
-                  <button onClick={() => {}} className='button error'>
+                  <button onClick={() => eliminarCobro(cobro)} className='button error'>
                     Eliminar
                   </button>
                 </td>

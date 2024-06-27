@@ -32,6 +32,18 @@ export default async function handler (req,res) {
 
   if(req.method === 'PUT'){}
 
-  if(req.method === 'DELETE'){}
+  if(req.method === 'DELETE'){
+    try{
+      const id = req.body;
+      const response = await fetch(`http://localhost:1973/cobros/${id}`, {
+        method: 'DELETE'
+      });
+      const responseData = await response.json();
+      res.send(responseData);
+    }
+    catch(error){
+      res.status(500).send(error);
+    }
+  }
 
 }
