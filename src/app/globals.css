@@ -230,3 +230,28 @@ input {
     }
   }
 }
+
+
+#selectCobros {
+  appearance: none;
+  padding: 10px;
+  border: 1px solid #DDD;
+  cursor: pointer;
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+  min-width: 320px;
+}
+
+.formulario-cobros {
+  display: flex;
+  flex-flow: column;
+  max-width: 500px;
+  gap: 20px;
+
+  div {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+  }
+}

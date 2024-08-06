@@ -107,9 +107,11 @@ export default function AlumnosPage(){
                         <button className='button'>Editar</button>
                       </td>
                       <td className='center'>
-                        <button className='button success'>
-                          Cargar Cobro
-                        </button>
+                        <Link href={`/alumnos/${user._id}/crear-cobro`}>
+                          <button className='button success'>
+                            Cargar Cobro
+                          </button>
+                        </Link>
                       </td>
                     </tr>
                   ))
