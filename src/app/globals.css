@@ -255,3 +255,11 @@ input {
     gap: 10px;
   }
 }
+
+
+/* DETALLE DEL ALUMNO */
+.ad-titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}

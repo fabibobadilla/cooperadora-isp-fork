@@ -9,8 +9,12 @@ export async function crearCobroActionHandler(formData) {
   }
 
   // LLAMAR AL SERVIDOR (BACKEND) COMO HACEMOS EN LOS DEMAS.
+  const response = await fetch('http://localhost:3000/api/pagos', {
+    method: 'POST',
+    body: JSON.stringify(data)
+  })
 
-  const res = { message: 'Desde el server OK' };
+  const res = await response.json();
 
   return res;
 }

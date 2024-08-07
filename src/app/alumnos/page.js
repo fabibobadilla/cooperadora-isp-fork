@@ -83,6 +83,7 @@ export default function AlumnosPage(){
                   <th></th>
                   <th></th>
                   <th></th>
+                  <th></th>
                 </tr>
               </thead>
               <tbody>
@@ -105,6 +106,11 @@ export default function AlumnosPage(){
                       </td>
                       <td className='center'>
                         <button className='button'>Editar</button>
+                      </td>
+                      <td className='center'>
+                        <Link href={`/alumnos/${user._id}/detalle`}>
+                          <button className='button'>Detalle</button>
+                        </Link>
                       </td>
                       <td className='center'>
                         <Link href={`/alumnos/${user._id}/crear-cobro`}>
