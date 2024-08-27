@@ -263,3 +263,14 @@ input {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
+.ad-datos-alumno {
+  list-style: none;
+  display: flex;
+  flex-flow: column;
+  gap: 1rem;
+
+  strong {
+    font-weight: bold;
+  }
+}
