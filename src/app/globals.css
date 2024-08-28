@@ -274,3 +274,21 @@ input {
     font-weight: bold;
   }
 }
+
+.ad-pago-resumen {
+  padding: 1rem .5rem;
+
+  ul {
+    list-style: none;
+    padding: 0px;
+    margin: 0px;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      padding: .5rem 0px;
+      border-bottom: 1px solid #DDD;
+      font-size: 1.4rem;
+    }
+  }
+}

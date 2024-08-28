@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Swal from 'sweetalert2';
+import { formatNumberToCurrency } from '@/utils/format-helpers';
 
 export default function CobrosPage() {
   const [cobros, setCobros] = useState([]);
@@ -84,7 +85,7 @@ export default function CobrosPage() {
               <tr>
                 <td>{cobro.titulo}</td>
                 <td>{cobro.descripcion}</td>
-                <td>{cobro.monto}</td>
+                <td>{formatNumberToCurrency(cobro.monto)}</td>
                 <td className='center'>
                   <button onClick={() => eliminarCobro(cobro)} className='button error'>
                     Eliminar
