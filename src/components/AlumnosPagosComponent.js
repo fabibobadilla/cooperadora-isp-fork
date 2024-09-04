@@ -44,6 +44,11 @@ export default function AlumnosPagosComponent({ pagos }) {
       {
         pagosState.map(pago => <li key={pago._id}>
           <div className={styles.pagoItem}>
+            { !pago.pagado &&
+                <div className={styles.deletePagoItem}>
+                  X
+                </div>
+            }
             <span className={pago.pagado ? styles.abonado : styles.pendiente}>
               { pago.pagado ? 'Abonado' : 'Pendiente' }
             </span>

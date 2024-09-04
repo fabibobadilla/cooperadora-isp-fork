@@ -73,7 +73,6 @@ export default function CobrosPage() {
             <th>Descripción</th>
             <th>Monto</th>
             <th></th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
@@ -86,11 +85,6 @@ export default function CobrosPage() {
                 <td>{cobro.titulo}</td>
                 <td>{cobro.descripcion}</td>
                 <td>{formatNumberToCurrency(cobro.monto)}</td>
-                <td className='center'>
-                  <button onClick={() => eliminarCobro(cobro)} className='button error'>
-                    Eliminar
-                  </button>
-                </td>
                 <td className='center'><button className='button'>Editar</button></td>
               </tr>
             ))

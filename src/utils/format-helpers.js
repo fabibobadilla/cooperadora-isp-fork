@@ -1,4 +1,4 @@
-export const formatNumberToCurrency = (number) => {
+export const formatNumberToCurrency = (number = 0) => {
   return number.toLocaleString('es-AR', {
     style: 'currency',
     currency: 'ARS'
