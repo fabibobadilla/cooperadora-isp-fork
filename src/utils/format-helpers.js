@@ -13,3 +13,12 @@ export const formatDate = (date) => {
     timeZone: "UTC"
   })
 }
+
+export const formatDatePDF = (date) => {
+  return new Date(date).toLocaleDateString("es-AR", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    timeZone: "UTC"
+  })
+}
