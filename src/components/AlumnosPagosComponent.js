@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import styles from './AlumnosPagosComponent.module.css';
 import { formatDate, formatNumberToCurrency } from '@/utils/format-helpers';
 import Swal from 'sweetalert2';
+import PrintIcon from './PrintIcon';
 
-export default function AlumnosPagosComponent({ pagos }) {
-
+export default function AlumnosPagosComponent({ pagos, alumnoId }) {
   const [pagosState, setPagosState] = useState(pagos);
 
   const efectuarPago = (pagoId) => {
@@ -38,6 +38,10 @@ export default function AlumnosPagosComponent({ pagos }) {
     });
   }
 
+  const imprimirTicket = (pagoId) => {
+    window.location.href = `/pagos/${pagoId}/ticket`;
+  }
+
   return <div className={styles.detallePagos}>
     <h2 className={styles.tituloPagos}>Pagos</h2>
     <ul className={styles.pagoList}>
@@ -47,6 +51,11 @@ export default function AlumnosPagosComponent({ pagos }) {
             { !pago.pagado &&
                 <div className={styles.deletePagoItem}>
                   X
+                </div>
+            }
+            { pago.pagado &&
+                <div className={styles.ticketItem} onClick={() => imprimirTicket(pago._id)}>
+                  <PrintIcon />
                 </div>
             }
             <span className={pago.pagado ? styles.abonado : styles.pendiente}>
