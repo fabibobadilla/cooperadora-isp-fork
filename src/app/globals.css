@@ -4,7 +4,8 @@
   --eerie-black: #1C2321;
   --jungle-green: #49A078;
   --anti-flash-white: #EEEEEE;
-  --tropical-indigo: #8B85C1;
+  --tropical-indigo: #0088ff;
+  /* --tropical-indigo: #8B85C1; */
   --periwinkle: #D4CDF4;
   --vista-blue: #72A1E5;
   --poppy-red: #DF2935;
@@ -29,7 +30,7 @@ body {
 
 .layout-menu {
   height: 100vh;
-  width: 350px;
+  width: 250px;
   padding-top: 50px;
   padding-left: 20px;
   background-color: var(--tropical-indigo);
@@ -40,7 +41,7 @@ body {
     a {
       transition: .2s linear;
       text-decoration: none;
-      color: var(--anti-flash-white);
+      color: #fff;/*var(--anti-flash-white);*/
     }
 
     li {
@@ -54,10 +55,32 @@ body {
         background-color: var(--periwinkle);
         color: var(--eerie-black);
         transition: .2s linear;
+        margin-left: 5px;
       }
+    }
+
+    li.active {
+      background-color: var(--periwinkle);
+      color: var(--eerie-black);
+      margin-left: 5px;
     }
   }
 
+}
+
+.nav-main{
+  li{
+    margin: 15px 15px -10px 15px ;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 6px 0px 0px 6px;
+    transition: ease-in-out 0.2s;
+
+    &:hover{
+      background-color: #fff;
+      border-radius: 5px 5px 0 0;
+    }
+  }
 }
 
 .layout-wrapper {
@@ -67,11 +90,53 @@ body {
   overflow-y: auto;
 }
 
-.menu-title {
+.menu-title { 
   font-size: 24px;
   font-weight: bold;
   color: var(--anti-flash-white);
-  margin-bottom: 10px;
+  margin: 0px 15px 20px 5px;
+}
+
+.menu-nav{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -50px 0px 20px -50px;
+  padding: 5px;
+  background-color: #0088ff;
+  width: 1153px;
+  height: 70px;
+
+  ul {
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+  } 
+    a {
+      text-decoration: none;
+      color: #fff;
+    }
+
+    li{
+      margin: 15px 15px -10px 15px ;
+      cursor: pointer;
+      padding: 10px;
+      border-radius: 6px 0px 0px 6px;
+      transition: ease 0.5s;
+
+      &:hover{
+        background-color: #fff;
+        border-radius: 5px 5px 0 0;
+      }
+
+    }
+
+    li.active{
+      background-color: #fff;
+      border-radius: 50% 50% 50% 50%; 
+      
+    }
+
 }
 
 .layout-title {
@@ -120,6 +185,8 @@ body {
         }
 
         &:hover {
+          position: inherit;
+          z-index: 100;
           background-color: var(--periwinkle);
         }
       }

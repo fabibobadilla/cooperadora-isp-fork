@@ -12,6 +12,7 @@
   "dependencies": {
     "@react-pdf/renderer": "^3.4.4",
     "next": "14.1.4",
+    "next-active-link": "^1.1.4",
     "react": "^18",
     "react-dom": "^18",
     "sweetalert2": "^11.11.0"
