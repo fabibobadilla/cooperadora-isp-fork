@@ -1,146 +1,66 @@
 import React from 'react';
-import { Page, Text, View, Document, StyleSheet, Font } from '@react-pdf/renderer';
+import { Page, Text, View, Document, Font } from '@react-pdf/renderer';
 import { formatDate, formatDatePDF, formatNumberToCurrency } from '@/utils/format-helpers';
+import { studentPDFStyles } from '@/utils/pdf-utils';
 
 Font.register({
   family: 'Roboto',
   src: "http://fonts.gstatic.com/s/roboto/v16/zN7GBFwfMP4uA6AR0HCoLQ.ttf"
 })
 
-const styles = StyleSheet.create({
-  page: {
-    flexDirection: 'column',
-    backgroundColor: 'white'
-  },
-  section: {
-    padding: 20,
-    paddingTop: 50,
-    marginLeft: 20,
-    marginRight: 20,
-    flexGrow: 0,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    borderBottom: '2px solid #CCC'
-  },
-  title: {
-    fontSize: "30px",
-    fontFamily: "Roboto",
-    padding: 0,
-    margin: 0,
-    textTransform: "uppercase",
-    fontWeight: "bold"
-  },
-  studentData: {
-    padding: "15px 20px 15px 20px",
-    gap: 5,
-    borderBottom: '2px solid #CCC',
-    marginLeft: 20,
-    marginRight: 20
-  },
-  studentDataTableRow: {
-    flexDirection: "row"
-  },
-  studentDataText: {
-    fontFamily: "Roboto",
-    color: "#999",
-    fontSize: 10
-  },
-  studentDataHeader20: {
-    backgroundColor: "#333",
-    padding: "5px 10px 5px 10px",
-    width: "20%"
-  },
-  studentDataHeader20Right: {
-    backgroundColor: "#333",
-    padding: "5px 10px 5px 10px",
-    width: "20%",
-    textAlign: "right"
-  },
-  studentDataHeader40: {
-    backgroundColor: "#333",
-    padding: "5px 10px 5px 10px",
-    width: "40%"
-  },
-  studentDataHeader20White: {
-    padding: "5px 10px 5px 10px",
-    width: "20%"
-  },
-  studentDataHeader40White: {
-    padding: "5px 10px 5px 10px",
-    width: "40%"
-  },
-  studentDataHeaderText: {
-    color: "white",
-    fontSize: 14,
-  },
-  studentDataHeaderTextGray: {
-    color: "#999",
-    fontSize: 12,
-  },
-  studentDataHeaderTextGrayRight: {
-    color: "#999",
-    fontSize: 12,
-    textAlign: "right"
-  },
-  resumenText: {
-    flexDirection: "row",
-    justifyContent: "space-between",
-    fontSize: 12
-  }
-});
 
 const PDFReport = ({alumno}) => {
 
   return (
     <Document>
-      <Page size="A4" style={styles.page}>
-        <View style={styles.section}>
-          <Text style={styles.title}>
+      <Page size="A4" style={studentPDFStyles.page}>
+        <View style={studentPDFStyles.section}>
+          <Text style={studentPDFStyles.title}>
             {alumno.nombre} {alumno.apellido}
           </Text>
         </View>
-        <View style={styles.studentData}>
-          <Text style={styles.studentDataText}>DNI: {alumno.dni}</Text>
-          <Text style={styles.studentDataText}>Dirección: {alumno.direccion}</Text>
-          <Text style={styles.studentDataText}>Teléfono: {alumno.telefono}</Text>
-          <Text style={styles.studentDataText}>Email: {alumno.email}</Text>
-          <Text style={styles.studentDataText}>Fecha de Nacimiento: {formatDate(alumno.fecha_nacimiento)}</Text>
+        <View style={studentPDFStyles.studentData}>
+          <Text style={studentPDFStyles.studentDataText}>DNI: {alumno.dni}</Text>
+          <Text style={studentPDFStyles.studentDataText}>Dirección: {alumno.direccion}</Text>
+          <Text style={studentPDFStyles.studentDataText}>Teléfono: {alumno.telefono}</Text>
+          <Text style={studentPDFStyles.studentDataText}>Email: {alumno.email}</Text>
+          <Text style={studentPDFStyles.studentDataText}>Fecha de Nacimiento: {formatDate(alumno.fecha_nacimiento)}</Text>
         </View>
-        <View style={styles.studentData}>
-        <View style={styles.studentDataTableRow}>
-          <View style={styles.studentDataHeader20}>
-            <Text style={styles.studentDataHeaderText}>Fecha</Text>
+        <View style={studentPDFStyles.studentData}>
+        <View style={studentPDFStyles.studentDataTableRow}>
+          <View style={studentPDFStyles.studentDataHeader20}>
+            <Text style={studentPDFStyles.studentDataHeaderText}>Fecha</Text>
           </View>
-          <View style={styles.studentDataHeader40}>
-            <Text style={styles.studentDataHeaderText}>Detalle</Text>
+          <View style={studentPDFStyles.studentDataHeader40}>
+            <Text style={studentPDFStyles.studentDataHeaderText}>Detalle</Text>
           </View>
-          <View style={styles.studentDataHeader20Right}>
-            <Text style={styles.studentDataHeaderText}>Monto</Text>
+          <View style={studentPDFStyles.studentDataHeader20Right}>
+            <Text style={studentPDFStyles.studentDataHeaderText}>Monto</Text>
           </View>
-          <View style={styles.studentDataHeader20Right}>
-            <Text style={styles.studentDataHeaderText}>Pagado</Text>
+          <View style={studentPDFStyles.studentDataHeader20Right}>
+            <Text style={studentPDFStyles.studentDataHeaderText}>Pagado</Text>
           </View>
         </View>
         {
           alumno.pagos && alumno.pagos.length > 0 && alumno.pagos.map((pago) => (
-            <View style={styles.studentDataTableRow}>
-              <View style={styles.studentDataHeader20White}>
-                <Text style={styles.studentDataHeaderTextGray}>
+            <View style={studentPDFStyles.studentDataTableRow}>
+              <View style={studentPDFStyles.studentDataHeader20White}>
+                <Text style={studentPDFStyles.studentDataHeaderTextGray}>
                   {formatDatePDF(pago.fechaCreacion)}
                 </Text>
               </View>
-              <View style={styles.studentDataHeader40White}>
-                <Text style={styles.studentDataHeaderTextGray}>
+              <View style={studentPDFStyles.studentDataHeader40White}>
+                <Text style={studentPDFStyles.studentDataHeaderTextGray}>
                   {pago.cobro_id.titulo}
                 </Text>
               </View>
-              <View style={styles.studentDataHeader20White}>
-                <Text style={styles.studentDataHeaderTextGrayRight}>
+              <View style={studentPDFStyles.studentDataHeader20White}>
+                <Text style={studentPDFStyles.studentDataHeaderTextGrayRight}>
                   {formatNumberToCurrency(pago.cobro_id.monto)}
                 </Text>
               </View>
-              <View style={styles.studentDataHeader20White}>
-                <Text style={styles.studentDataHeaderTextGrayRight}>
+              <View style={studentPDFStyles.studentDataHeader20White}>
+                <Text style={studentPDFStyles.studentDataHeaderTextGrayRight}>
                 { pago.pagado ? 'Abonado' : 'Pendiente' }
                 </Text>
               </View>
@@ -148,16 +68,16 @@ const PDFReport = ({alumno}) => {
           ))
         }
         </View>
-        <View style={styles.studentData}>
-          <View style={styles.resumenText}>
+        <View style={studentPDFStyles.studentData}>
+          <View style={studentPDFStyles.resumenText}>
             <Text>Total:</Text>
             <Text>{formatNumberToCurrency(alumno.totalPagos)}</Text>
           </View>
-          <View style={styles.resumenText}>
+          <View style={studentPDFStyles.resumenText}>
             <Text>Abonado:</Text>
             <Text>{formatNumberToCurrency(alumno.pagosAbonados)}</Text>
           </View>
-          <View style={styles.resumenText}>
+          <View style={studentPDFStyles.resumenText}>
             <Text>Saldo:</Text>
             <Text>{formatNumberToCurrency(alumno.pagosPendientes)}</Text>
           </View>
